@@ -5,10 +5,9 @@ var setProperties = Ember.setProperties;
 var debounce = Ember.run.debounce;
 var cancel = Ember.run.cancel;
 var computed = Ember.computed;
-var indexOf = Ember.EnumerableUtils.indexOf;
 
 function contains(array, item) {
-  return indexOf(array, item) !== -1;
+  return Ember.$.inArray(item, array);
 }
 
 function isConfiguredProperty(options, prop) {
