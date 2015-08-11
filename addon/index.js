@@ -54,7 +54,10 @@ var AutosaveProxy = Ember.ObjectProxy.extend({
   },
 
   unknownProperty: function(key) {
-    return this._content.get(key);
+    if (!this._content) {
+      return undefined;
+    }
+    return get(this._content, key);
   },
 
   willDestroy: function() {
